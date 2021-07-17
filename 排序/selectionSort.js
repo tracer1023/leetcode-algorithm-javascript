@@ -18,15 +18,21 @@
  * 3.唯一的好处是不占用额外的内存空间
  */
 
+
+//复杂度：
+//与元素组成无关：o(n*n) ----无论有序还是无序，都是这么多
 function selectionSort(arr) {
+    let len = arr.length
     let minIndex, temp
-    for (let i = 0; i < len - 1; i++) {
-        minIndex = i;
-        for (let j = 0; j < arr.length - i - 1; j++) {
-            if (arr[j] < arr[minIndex]) { //寻找最小的数
-                minIndex = j; // 保存最小数的索引
+    for (let i = 0; i < len; i++) { //边界值必须是len，这样可以扫描到最后一个值
+        minIndex = i; //假定第一个数最小
+        for (let j = i + 1; j < len; j++) { //边界值必须是len，这样可以扫描到最后一个值
+            //小于决定它是稳定的
+            if (arr[j] < arr[minIndex]) { //寻找最小的数，如果第j个比最小数还小，
+                minIndex = j; // 保存最小数的索引    则设置j为最小的
             }
         }
+        //把找到的最小数和原来最小数替换位置
         temp = arr[i];
         arr[i] = arr[minIndex];
         arr[minIndex] = temp;

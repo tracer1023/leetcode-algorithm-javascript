@@ -4,14 +4,18 @@
  * 稳定性：稳定
  * 适用场景： 插入排序适用于已有部分数据有序的情况， 有序部分越大越好。
  */
-function InsertionSort(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        let preIndex = i - 1;
-        let current = arr[i]; //当前要比较的值current
-        while (preIndex > 0 && arr[preIndex] > current) { //比较左侧数组的值是否大于当前值
-            arr[preIndex + 1] = arr[preIndex]; //大于的值右移
-            preIndex--; //依次向左比较
+//空间排序O(1)
+// 最好情况 o(n),最坏情况o(n*n)
+
+function InsertionSort1(arr) {
+    for (let i = 1; i < arr.length; i++) { //从第一个元素开始，因为第0个元素一开始就是有序的
+        let key = a[i] //要比较的元素
+        let j = i - 1 //从前面一个已经开始排序的元素开始往前比较
+        while (j >= 0 && a[j] > key) { //当前面的数下标大于等于0，并且前面的数大于要比较的数
+            a[j + 1] = a[j] //就把前面的数后移
+            j--;
         }
-        arr[preIndex + 1] = current; //找到位置插入比较的值
+        a[j + 1] = current //把要比较的数放在正确的位置上
+        //为啥上面这里是j+1不是j，因为上面while循环最后一步是j--,然后不符合while循环条件跳出，就把比较的数放在不和条件的那个数后面
     }
 }
