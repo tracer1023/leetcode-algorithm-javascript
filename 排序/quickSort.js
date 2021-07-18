@@ -19,6 +19,9 @@
 
 // 采用了分治和递归的思想  ---和归并一样
 //使用了双指针
+//时间复杂度：o(nlogn)
+//每层的复杂度o(n)
+//分为logn -1层
 function quickSort(arr) {
     if (arr.length < 1) {
         return arr

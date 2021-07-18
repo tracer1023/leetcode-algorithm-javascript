@@ -1,4 +1,7 @@
 // import swap from '../工具/swap';
+
+const swap = require("../工具/swap");
+
 /**
  * 时间复杂度： O(N * N)
  * 排序思想： 将待排序的元素看作是竖着排列的“ 气泡”， 较小的元素比较轻， 从而要往上浮
@@ -94,3 +97,16 @@ function bubbleSortOpt2(arr) {
 
 }
 bubbleSortOpt2(arrList)
+
+function bubble(arr) {
+    let len = arr.length;
+    let flg = 0
+    for (let i = 0; i < len; i++) {
+        for (let j = 0; j < len - i - 1; j++) {
+            if (arr[j] > arr[j]) {
+                swap(arr[i], swap[j])
+                flag = 1
+            }
+        }
+    }
+}

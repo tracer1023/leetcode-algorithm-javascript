@@ -13,7 +13,7 @@ function merge(nums1, m, nums2, n) {
         p2 = 0
     let sorted = new Array(m + n).fill(0)
     let cur;
-    while (p1 < m || p2 < n) {
+    while (p1 < m || p2 < n) { //注意只要有一个满足条件，就说明还没比对完成，注意边界
         if (p1 === m) {
             cur = nums2[p2++]
         } else if (p2 === n) {
@@ -25,7 +25,7 @@ function merge(nums1, m, nums2, n) {
         }
         sorted[p1 + p2 - 1] = cur
     }
-    for (let i = 0; i < m + n; i++) {
+    for (let i = 0; i < m + n; i++) { //注意数组的长度边界是2个数组之和
         nums1[i] = sorted[i]
     }
 }

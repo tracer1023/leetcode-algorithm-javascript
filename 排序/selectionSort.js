@@ -39,3 +39,19 @@ function selectionSort(arr) {
     }
     return arr;
 }
+
+import swap from '../工具/swap'
+
+function select(arr) {
+    let min, temp
+    let len = arr.length
+    for (let i = 0; i < len; i++) {
+        min = i
+        for (let j = i + 1; j < len; j++) {
+            if (arr[j] < arr[min]) {
+                min = j
+            }
+        }
+        swap(arr[i], arr[min])
+    }
+}

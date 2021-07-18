@@ -52,7 +52,7 @@ function merge(arr, left, mid, right, temp) {
     }
 
     //合并左半区剩余的部分
-    while (i <= temp) {
+    while (l_pos <= mid) {
         temp[t_pos++] = arr[l_pos++]
         // temp[t] = arr[i]
         // t++;
@@ -60,7 +60,7 @@ function merge(arr, left, mid, right, temp) {
     }
 
     //合并右半区剩余的部分
-    while (j <= right) {
+    while (r_pos <= right) {
         temp[t_pos++] = arr[r_pos++]
     }
 
@@ -69,4 +69,37 @@ function merge(arr, left, mid, right, temp) {
         arr[left] = temp[left]
         left++;
     }
+}
+
+
+function merge1(arr) {
+    let len = arr.length;
+    if (len < 2) {
+        return arr;
+    }
+    let mid = Math.floor(len / 2)
+    let left = arr.slice(0, mid)
+    let right = arr.slice(mid)
+    return mergeSort(merge1(left), merge1(right))
+}
+
+function mergeSort1(left, right) {
+    let result = [];
+    while (left.length > 0 && right.length > 0) {
+        if (left[0] < right[0]) {
+            result.push(left.shift())
+        } else {
+            result.push(right.shift())
+        }
+    }
+
+    while (left.length) {
+        result.push(left.shift())
+    }
+
+    while (right.length) {
+        result.push(right.shift())
+    }
+
+    return result;
 }
