@@ -71,6 +71,7 @@ function merge(arr, left, mid, right, temp) {
     }
 }
 
+console.log(mergeSort(arr, 0, arr.length, []))
 
 function merge1(arr) {
     let len = arr.length;
